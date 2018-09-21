@@ -1,19 +1,41 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {Card, Menu, Row, Col} from "antd"
 import './App.css';
 
 class App extends Component {
   render() {
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+        <Card style={{ width: 300, height: 500 }} title={'nihao '}   extra={<a href="#">More</a>}>
+           <Row  gutter={10} type={'flex'} justify={'center '} align={'top'}>
+               <Col className="gutter-row" span={6} offset={1} >
+                   <div className="gutter-box">col-6</div>
+               </Col>
+               <Col className="gutter-row" span={6}>
+                   <div className="gutter-box">col-6</div>
+               </Col>
+               <Col className="gutter-row" span={6} push={0}>
+                   <div className="gutter-box">col-6</div>
+               </Col>
+               <Col className="gutter-row" span={6} offset={1} >
+                   <div className="gutter-box">col-6</div>
+               </Col>
+           </Row>
+            <Row gutter={16} type={'flex'} justify={'center '} align={'center'}>
+                <Col className="gutter-row" span={6} >
+                    <div className="gutter-box">col-6</div>
+                </Col>
+                <Col className="gutter-row" span={6}>
+                    <div className="gutter-box">col-6</div>
+                </Col>
+                <Col className="gutter-row" span={6} push={0}>
+                    <div className="gutter-box">col-6</div>
+                </Col>
+                <Col className="gutter-row" span={6}>
+                    <div className="gutter-box">col-6</div>
+                </Col>
+            </Row>
+        </Card>
     );
   }
 }
