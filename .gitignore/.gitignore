@@ -1,7 +1,0 @@
-*.log
-*.temp
-/node_modules/
-.idea/
-*.iml
-.gitignore
-package-lock.json
