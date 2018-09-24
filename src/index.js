@@ -5,5 +5,5 @@ import App from './App';
 import CRoute from './routes';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<CRoute />, document.getElementById('root'));
+ReactDOM.render(<App><CRoute/></App>, document.getElementById('root'));
 registerServiceWorker();

@@ -1,21 +1,32 @@
-import React, {Component} from "react"
-import {Router, Route, SWitch, BrowserRouter} from "react-router-dom"
+import React, {Component} from "react";
+import {Router, Route, Switch, Redirect} from "react-router-dom";
+import {createBrowserHistory} from 'history'
+import PRoute from '../components/PRoute'
 
-import Home from  "../components/common/home"
-import Login from  "../components/common/login"
-import NoMatch from '../components/common/404'
+import Layout from "../pages/layout/index"
+import User from "../pages/user/index"
+import Home from "../pages/home/index"
+import Login from "../pages/login/index"
+import NoMatch from '../pages/404'
+
 export default class CRoute extends Component{
-    constructor(){
-        super();
-    }
     render(){
         return (
-            <Router history={BrowserRouter}>
-                <SWitch>
-                    <Route exact path="/" component={Home}/>
+            <Router history={createBrowserHistory()}>
+                <Switch>
                     <Route path="/login" component={Login}/>
+                    <Route path="/" >
+                        <Layout>
+                            <Switch>
+                                <PRoute path="/user" component={User}/>
+                                <PRoute path="/home" component={Home}/>
+
+                                <Redirect to={'/home'}/>
+                            </Switch>
+                        </Layout>
+                    </Route>
                     <Route component={NoMatch}/>
-                </SWitch>
+                </Switch>
             </Router>
         )
     }
