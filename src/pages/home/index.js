@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import {Card, Dropdown, Menu,Icon,Button} from "antd"
-
+import {Card, Dropdown, Menu,Icon,Button, InputNumber, Row} from "antd"
+import {connect} from 'react-redux'
+import * as operator from "../../redux/actions"
 
 class Home extends Component{
-    state = {visible: false};
+    state = {visible: false,
+      //  value1: 0,
+      //  value2: 100
+    };
     handleVisibleChange = (flag) => {
         this.setState({ visible: flag });
     }
@@ -13,8 +17,14 @@ class Home extends Component{
             this.setState({ visible: false });
         }
     }
-
+    /*handlePlus= ()=>{
+         this.setState({value1: this.state.value1+1});
+    }
+    handleMinus= ()=>{
+         this.setState({value2: this.state.value2-1});
+    }*/
     render(){
+
         const menu = (
             <Menu onClick={this.handleMenuClick}>
                 <Menu.Item key="1">Clicking me will not close the menu.</Menu.Item>
@@ -22,23 +32,54 @@ class Home extends Component{
                 <Menu.Item key="3">Clicking me will close the menu</Menu.Item>
             </Menu>
         );
+        const {calculator,plus,minus} = this.props;
         return(
             <Card title={'Home'}>
                 Home
-                <Dropdown
-                    overlay={menu}
-                    // trigger={['click']}
-                    onVisibleChange={this.handleVisibleChange}
-                    visible={this.state.visible}
-                >
-                    <Button>
+                <Row style={{marginTop: 10}}>
+                    <Dropdown
+                        overlay={menu}
+                        // trigger={['click']}
+                        onVisibleChange={this.handleVisibleChange}
+                        visible={this.state.visible}
+                    >
+                        <Button>
                             Hover me <Icon type="down" />
-                    </Button>
-                </Dropdown>
-
+                        </Button>
+                    </Dropdown>
+                </Row>
+                <Row style={{marginTop: 10}}>
+                    <InputNumber
+                        min={0}
+                        max={100}
+                        defaultValue={0}
+                        value = {calculator.value1}
+                    />
+                    <Icon type="plus-square" theme="outlined" onClick={plus} />
+                </Row>
+                <Row style={{marginTop: 10}}>
+                    <InputNumber
+                        min={0}
+                        max={100}
+                        value = {calculator.value2}
+                        defaultValue={100}
+                    />
+                    <Icon type="minus-square" theme="outlined" onClick={minus}/>
+                </Row>
             </Card>
         )
     }
 }
-
-export default withRouter(Home)
+const mapStateToProps= (state,ownProps)=>{
+    return {
+        calculator: state.calculator
+    }
+}
+/*const mapDispatchToProps = (dispatch,ownProps)=>{
+    return {
+        plus: ()=> dispatch(operator.plus()),
+        minus: ()=> dispatch(operator.minus())
+    }
+}*/
+const mapDispatchToProps = operator;
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
