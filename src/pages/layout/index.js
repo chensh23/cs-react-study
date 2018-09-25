@@ -117,14 +117,14 @@ class Layout extends Component{
                             </li>
                         </ul>
 
-                        <Menu mode={'horizontal'} >
+                        <Menu mode={'horizontal'} style={{ width: 90}}>
                             <SubMenu title={
                                 <span>
                                     <Icon type={'user'} style={{fontSize: 18, color: "rgb(29, 165, 122)"}}/>
                                     {this.getUser().username}
                                 </span>
                             }>
-                                <Item key={'1'} onClick={this.handleLogoutClick} >
+                                <Item key={'logout'} onClick={this.handleLogoutClick} >
                                     <Icon type="logout" theme="outlined" />
                                     <span>退出</span>
                                 </Item>

@@ -1,33 +1,40 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import {Card} from "antd"
+import {Card, Dropdown, Menu,Icon,Button} from "antd"
 
 
 class Home extends Component{
+    state = {visible: false};
+    handleVisibleChange = (flag) => {
+        this.setState({ visible: flag });
+    }
+    handleMenuClick = (e) => {
+        if (e.key === '3') {
+            this.setState({ visible: false });
+        }
+    }
+
     render(){
+        const menu = (
+            <Menu onClick={this.handleMenuClick}>
+                <Menu.Item key="1">Clicking me will not close the menu.</Menu.Item>
+                <Menu.Item key="2">Clicking me will not close the menu also.</Menu.Item>
+                <Menu.Item key="3">Clicking me will close the menu</Menu.Item>
+            </Menu>
+        );
         return(
             <Card title={'Home'}>
                 Home
-                <div id='a' style={{height: 300,background: 'red'}}>
-                    ....qaaaaaaa
-                    <br/>
-                </div>
-                <div id='b'  style={{height: 300,background: 'blue'}}>
-                    ....bbbbbbb
-                    <br/>
-                </div>
-                <div id='c'  style={{height: 300,background: '#ccc'}}>
-                    ....cccccc
-                    <br/>
-                </div>
-                <div id='d'  style={{height: 300,background: 'green'}}>
-                    ....ddddddd
-                    <br/>
-                </div>
-                <div id='e'  style={{height: 300,background: 'yellow'}}>
-                    ....eeeeee
-                    <br/>
-                </div>
+                <Dropdown
+                    overlay={menu}
+                    // trigger={['click']}
+                    onVisibleChange={this.handleVisibleChange}
+                    visible={this.state.visible}
+                >
+                    <Button>
+                            Hover me <Icon type="down" />
+                    </Button>
+                </Dropdown>
 
             </Card>
         )
