@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
 import {Card, Dropdown, Menu,Icon,Button, InputNumber, Row} from "antd"
 import {connect} from 'react-redux'
 import * as operator from "../../redux/actions"

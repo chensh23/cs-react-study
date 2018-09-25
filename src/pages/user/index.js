@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
 import {Card} from "antd"
 
 const tabList = [{
@@ -29,7 +28,7 @@ class User extends Component{
             <Card
                 style={{ width: '100%' }}
                 title="Card title"
-                extra={<a href="#">More</a>}
+                extra={<a href="http://www.baidu.com">More</a>}
                 tabList={tabList}
                 activeTabKey={this.state.key}
                 onTabChange={(key) => { this.onTabChange(key, 'key'); }}
@@ -40,4 +39,4 @@ class User extends Component{
     }
 }
 
-export default withRouter(User)
+export default User

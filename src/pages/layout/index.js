@@ -1,12 +1,11 @@
 import React, {Component} from "react"
 import { withRouter,Link } from 'react-router-dom';
-import { Menu, Icon,Dropdown, Anchor} from "antd"
+import { Menu, Icon,Dropdown} from "antd"
 import "./index.css"
 import CsBreadcrumb from "../../components/breadcrumb/index"
 import logo from "../../style/img/logo.png"
 
 const {Item, SubMenu} = Menu;
-const {Link: ALink} = Anchor;
 
 class Layout extends Component{
     constructor(props){
@@ -22,21 +21,20 @@ class Layout extends Component{
         this.props.history.replace("/login");
     }
     handleCollapse = ()=>{
-        console.log('collapse')
         this.setState({collapsed: !this.state.collapsed});
     }
     getUser = ()=> {
         return localStorage.getItem("suc_user")? JSON.parse(localStorage.getItem("suc_user")): {};
     }
-    componentDidMount(){
+/*    componentDidMount(){
         this.setState({defaultKey: [this.props.location.pathname]},()=>{
         })
     }
     handleToggleMenu=({ item, key, keyPath })=>{
         this.setState({defaultKey: [key]});
-    }
+    }*/
     render(){
-        const {collapsed,defaultKey,pathname} = this.state;
+        const {collapsed} = this.state;
         const {children} = this.props;
         const menu = (
             <Menu onClick={this.handleLogoutClick}>
