@@ -10,8 +10,8 @@
     babel-runtime "^6.26.0"
 
 "@ant-design/icons@~1.1.5":
-  version "1.1.11"
-  resolved "http://registry.npm.taobao.org/@ant-design/icons/download/@ant-design/icons-1.1.11.tgz#24cc05aa77c31aeb09823e150bf3a2443bcdc48b"
+  version "1.1.13"
+  resolved "http://registry.npm.taobao.org/@ant-design/icons/download/@ant-design/icons-1.1.13.tgz#90da8293d1dc0267b047c28cb5248266ef1aa5fc"
 
 "@babel/helper-module-imports@^7.0.0":
   version "7.0.0"
@@ -106,8 +106,8 @@ ajv@^5.0.0, ajv@^5.1.5, ajv@^5.2.0, ajv@^5.3.0:
     json-schema-traverse "^0.3.0"
 
 ajv@^6.0.1:
-  version "6.5.3"
-  resolved "http://registry.npm.taobao.org/ajv/download/ajv-6.5.3.tgz#71a569d189ecf4f4f321224fecb166f071dd90f9"
+  version "6.5.4"
+  resolved "http://registry.npm.taobao.org/ajv/download/ajv-6.5.4.tgz#247d5274110db653706b550fcc2b797ca28cfc59"
   dependencies:
     fast-deep-equal "^2.0.1"
     fast-json-stable-stringify "^2.0.0"
@@ -169,8 +169,8 @@ ant-design-palettes@^1.1.3:
     tinycolor2 "^1.4.1"
 
 antd@^3.9.2:
-  version "3.9.2"
-  resolved "http://registry.npm.taobao.org/antd/download/antd-3.9.2.tgz#7f1007da4fc746e8a0d9bb6846b70b6001374ed9"
+  version "3.9.3"
+  resolved "http://registry.npm.taobao.org/antd/download/antd-3.9.3.tgz#bc3e6a93478f4fcfb57f9e7f683c3ce590069ddb"
   dependencies:
     "@ant-design/icons" "~1.1.5"
     "@ant-design/icons-react" "~1.1.1"
@@ -293,9 +293,9 @@ array-filter@~0.0.0:
   version "0.0.1"
   resolved "http://registry.npm.taobao.org/array-filter/download/array-filter-0.0.1.tgz#7da8cf2e26628ed732803581fd21f67cacd2eeec"
 
-array-find-index.js.js@^1.0.1:
+array-find-index@^1.0.1:
   version "1.0.2"
-  resolved "http://registry.npm.taobao.org/array-find-index.js.js/download/array-find-index.js.js-1.0.2.tgz#df010aa1287e164bbda6f9723b0a96a1ec4187a1"
+  resolved "http://registry.npm.taobao.org/array-find-index/download/array-find-index-1.0.2.tgz#df010aa1287e164bbda6f9723b0a96a1ec4187a1"
 
 array-flatten@1.1.1:
   version "1.1.1"
@@ -1428,12 +1428,12 @@ caniuse-api@^1.5.2:
     lodash.uniq "^4.5.0"
 
 caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000886"
-  resolved "http://registry.npm.taobao.org/caniuse-db/download/caniuse-db-1.0.30000886.tgz#a0b962dbaccb6d2fc795541bb9ec524582bf433b"
+  version "1.0.30000887"
+  resolved "http://registry.npm.taobao.org/caniuse-db/download/caniuse-db-1.0.30000887.tgz#9abf538610e3349870ed525f7062de649cc3c570"
 
 caniuse-lite@^1.0.30000748, caniuse-lite@^1.0.30000792:
-  version "1.0.30000886"
-  resolved "http://registry.npm.taobao.org/caniuse-lite/download/caniuse-lite-1.0.30000886.tgz#2127186c4f57da10d3ba26fc3e87dce4a5ddd3ae"
+  version "1.0.30000887"
+  resolved "http://registry.npm.taobao.org/caniuse-lite/download/caniuse-lite-1.0.30000887.tgz#1769458c27bbdcf61b0cb6b5072bb6cd11fd9c23"
 
 capture-stack-trace@^1.0.0:
   version "1.0.1"
@@ -1980,7 +1980,7 @@ currently-unhandled@^0.4.1:
   version "0.4.1"
   resolved "http://registry.npm.taobao.org/currently-unhandled/download/currently-unhandled-0.4.1.tgz#988df33feab191ef799a61369dd76c17adf957ea"
   dependencies:
-    array-find-index.js.js "^1.0.1"
+    array-find-index "^1.0.1"
 
 d@1:
   version "1.0.0"
@@ -4809,8 +4809,8 @@ natural-compare@^1.4.0:
   resolved "http://registry.npm.taobao.org/natural-compare/download/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
 
 needle@^2.2.1:
-  version "2.2.3"
-  resolved "http://registry.npm.taobao.org/needle/download/needle-2.2.3.tgz#c1b04da378cd634d8befe2de965dc2cfb0fd65ca"
+  version "2.2.4"
+  resolved "http://registry.npm.taobao.org/needle/download/needle-2.2.4.tgz#51931bff82533b1928b7d1d69e01f1b00ffd2a4e"
   dependencies:
     debug "^2.1.2"
     iconv-lite "^0.4.4"
@@ -5267,8 +5267,8 @@ path-type@^2.0.0:
     pify "^2.0.0"
 
 pbkdf2@^3.0.3:
-  version "3.0.16"
-  resolved "http://registry.npm.taobao.org/pbkdf2/download/pbkdf2-3.0.16.tgz#7404208ec6b01b62d85bf83853a8064f8d9c2a5c"
+  version "3.0.17"
+  resolved "http://registry.npm.taobao.org/pbkdf2/download/pbkdf2-3.0.17.tgz#976c206530617b14ebb32114239f7b09336e93a6"
   dependencies:
     create-hash "^1.1.2"
     create-hmac "^1.1.4"
@@ -5796,8 +5796,8 @@ rc-align@^2.4.0, rc-align@^2.4.1:
     rc-util "^4.0.4"
 
 rc-animate@2.x, rc-animate@^2.3.0, rc-animate@^2.4.1:
-  version "2.5.3"
-  resolved "http://registry.npm.taobao.org/rc-animate/download/rc-animate-2.5.3.tgz#a84636b50d4198184c34efa325824f14a2218d0d"
+  version "2.5.4"
+  resolved "http://registry.npm.taobao.org/rc-animate/download/rc-animate-2.5.4.tgz#3b308c42e137a2e3fb578650fdb145c2100fcc35"
   dependencies:
     babel-runtime "6.x"
     classnames "^2.2.6"
@@ -5942,8 +5942,8 @@ rc-input-number@~4.0.0:
     rmc-feedback "^2.0.0"
 
 rc-menu@^7.3.0, rc-menu@~7.4.1:
-  version "7.4.8"
-  resolved "http://registry.npm.taobao.org/rc-menu/download/rc-menu-7.4.8.tgz#c9b39bc0909a7d998c4b179470c8a0c2e94cd7c3"
+  version "7.4.9"
+  resolved "http://registry.npm.taobao.org/rc-menu/download/rc-menu-7.4.9.tgz#9fdddde8ddb7bc6104b08bd0b255c91e7655a717"
   dependencies:
     babel-runtime "6.x"
     classnames "2.x"
@@ -5974,8 +5974,8 @@ rc-pagination@~1.17.0:
     prop-types "^15.5.7"
 
 rc-progress@~2.2.2:
-  version "2.2.5"
-  resolved "http://registry.npm.taobao.org/rc-progress/download/rc-progress-2.2.5.tgz#e61d0544bf9d4208e5ba32fc50962159e7f952a3"
+  version "2.2.6"
+  resolved "http://registry.npm.taobao.org/rc-progress/download/rc-progress-2.2.6.tgz#d5d07c07333b352a9ef13230c5940e13336c1e62"
   dependencies:
     babel-runtime "6.x"
     prop-types "^15.5.8"
@@ -5990,8 +5990,8 @@ rc-rate@~2.4.0:
     rc-util "^4.3.0"
 
 rc-select@~8.2.6:
-  version "8.2.8"
-  resolved "http://registry.npm.taobao.org/rc-select/download/rc-select-8.2.8.tgz#3cfbce3d3128d47f2af0b74150dc54870828e3ee"
+  version "8.2.9"
+  resolved "http://registry.npm.taobao.org/rc-select/download/rc-select-8.2.9.tgz#7862eb3b6e09d4942510e02be92f8e1e689fdfe2"
   dependencies:
     babel-runtime "^6.23.0"
     classnames "2.x"
@@ -6051,8 +6051,8 @@ rc-table@~6.3.2:
     warning "^3.0.0"
 
 rc-tabs@~9.4.0:
-  version "9.4.3"
-  resolved "http://registry.npm.taobao.org/rc-tabs/download/rc-tabs-9.4.3.tgz#9bbc87b41eb8de8909a9cbf3e11066c76ce56fe8"
+  version "9.4.6"
+  resolved "http://registry.npm.taobao.org/rc-tabs/download/rc-tabs-9.4.6.tgz#54dd60033d3dd86ba0cb3e4f09e9836379f5ac7a"
   dependencies:
     babel-runtime "6.x"
     classnames "2.x"
@@ -6081,8 +6081,8 @@ rc-tooltip@^3.7.0, rc-tooltip@~3.7.0:
     rc-trigger "^2.2.2"
 
 rc-tree-select@~2.2.0:
-  version "2.2.5"
-  resolved "http://registry.npm.taobao.org/rc-tree-select/download/rc-tree-select-2.2.5.tgz#79a078413e1f686a0b6cc638b2faadc47a45c257"
+  version "2.2.6"
+  resolved "http://registry.npm.taobao.org/rc-tree-select/download/rc-tree-select-2.2.6.tgz#e045f83fb8d834848cc20d598d60452e56be4e53"
   dependencies:
     babel-runtime "^6.23.0"
     classnames "^2.2.1"
@@ -6109,8 +6109,8 @@ rc-tree@~1.14.3, rc-tree@~1.14.5:
     warning "^3.0.0"
 
 rc-trigger@^2.2.0, rc-trigger@^2.2.2, rc-trigger@^2.3.0, rc-trigger@^2.5.1, rc-trigger@^2.5.4:
-  version "2.6.1"
-  resolved "http://registry.npm.taobao.org/rc-trigger/download/rc-trigger-2.6.1.tgz#8a312c92440b58f26b5d4f8126e421d890e01532"
+  version "2.6.2"
+  resolved "http://registry.npm.taobao.org/rc-trigger/download/rc-trigger-2.6.2.tgz#a9c09ba5fad63af3b2ec46349c7db6cb46657001"
   dependencies:
     babel-runtime "6.x"
     classnames "^2.2.6"
@@ -6747,9 +6747,9 @@ send@0.16.2:
     range-parser "~1.2.0"
     statuses "~1.4.0"
 
-serve-index.js.js@^1.7.2:
+serve-index@^1.7.2:
   version "1.9.1"
-  resolved "http://registry.npm.taobao.org/serve-index.js.js/download/serve-index.js.js-1.9.1.tgz#d3768d69b1e7d82e5ce050fff5b453bea12a9239"
+  resolved "http://registry.npm.taobao.org/serve-index/download/serve-index-1.9.1.tgz#d3768d69b1e7d82e5ce050fff5b453bea12a9239"
   dependencies:
     accepts "~1.3.4"
     batch "0.6.1"
@@ -7669,7 +7669,7 @@ webpack-dev-server@2.11.3:
     opn "^5.1.0"
     portfinder "^1.0.9"
     selfsigned "^1.9.1"
-    serve-index.js.js "^1.7.2"
+    serve-index "^1.7.2"
     sockjs "0.3.19"
     sockjs-client "1.1.5"
     spdy "^3.4.1"
