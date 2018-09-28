@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { withRouter,Link } from 'react-router-dom';
 import {Breadcrumb} from "antd"
-
+import PropType from "prop-types"
 const {Item} = Breadcrumb;
 
 class CsBreadcrumb extends Component{
+    static propTypes = {
+       pathname: PropType.string.isRequired
+    }
     breadcrumbNameMap = {
         '/home': '主页',
         '/user': '用户'
