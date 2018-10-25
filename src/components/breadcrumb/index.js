@@ -10,7 +10,8 @@ class CsBreadcrumb extends Component{
     }
     breadcrumbNameMap = {
         '/home': '主页',
-        '/user': '用户'
+        '/user': '用户',
+        '/demo': 'demo'
     };
     home = ()=>{
         return (

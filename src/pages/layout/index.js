@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import { withRouter,Link } from 'react-router-dom';
+import { withRouter,Link,Prompt } from 'react-router-dom';
 import { Menu, Icon,Dropdown} from "antd"
 import "./index.css"
 import CsBreadcrumb from "../../components/breadcrumb/index"
@@ -50,7 +50,6 @@ class Layout extends Component{
                     <div className={'logo'} >
                         <img alt={''} src={logo} style={{width: "auto", height: "100%"}}/>
                     </div>
-
                     <Menu theme={'dark'}
                           mode={'inline'}
                           inlineCollapsed = {collapsed}
@@ -78,6 +77,14 @@ class Layout extends Component{
                             </Link>
 
                         </Item>
+                        <Item key={'/demo'}>
+
+                            <Link to={'/demo'}>
+                                <Icon type={'email'}/>
+                                <span>demo</span>
+                            </Link>
+
+                        </Item>
                         <Item key={'/desktop'}>
                             <Icon type={'desktop'}></Icon>
                             <span>zm</span>
@@ -101,6 +108,14 @@ class Layout extends Component{
                     </Menu>
                 </nav>
                 <section className={'center-wrapper'}>
+
+                <Prompt
+                    when={true}
+                    message={location =>
+                        `Are you sure you want to go to ${location.pathname}`
+                    }
+                />
+
                     <header className={'head-wrapper'}>
                         <Icon onClick={this.handleCollapse} type={collapsed ? 'menu-unfold':'menu-fold'} theme="outlined" style={{fontSize: 24, paddingLeft: 20}}/>
                         <ul className={'info-box-wrapper'}>

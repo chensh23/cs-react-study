@@ -6,5 +6,7 @@ import App from './App';
 import CRoute from './routes';
 import registerServiceWorker from './registerServiceWorker';
 import store from './redux/store'
-ReactDOM.render(<Provider store={store}><App><CRoute/></App></Provider>, document.getElementById('root'));
+import zhCN from 'antd/lib/locale-provider/zh_CN';
+import {LocaleProvider} from "antd"
+ReactDOM.render(<Provider store={store}><LocaleProvider locale={zhCN}><App><CRoute/></App></LocaleProvider></Provider>, document.getElementById('root'));
 registerServiceWorker();

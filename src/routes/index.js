@@ -8,6 +8,7 @@ import User from "../pages/user/index"
 import Home from "../pages/home/index"
 import Login from "../pages/login/index"
 import NoMatch from '../pages/404'
+import Demo from '../pages/user/Demo'
 
 export default class CRoute extends Component{
     render(){
@@ -20,6 +21,7 @@ export default class CRoute extends Component{
                             <Switch>
                                 <PRoute path="/user" component={User}/>
                                 <PRoute path="/home" component={Home}/>
+                                <PRoute path="/demo" component={Demo}/>
 
                                 <Redirect to={'/home'}/>
                             </Switch>
