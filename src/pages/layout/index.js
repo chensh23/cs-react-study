@@ -85,6 +85,22 @@ class Layout extends Component{
                             </Link>
 
                         </Item>
+                        <Item key={'/demo1'}>
+
+                            <Link to={'/demo1'}>
+                                <Icon type={'email'}/>
+                                <span>demo1</span>
+                            </Link>
+
+                        </Item>
+                        <Item key={'/demo2'}>
+
+                            <Link to={'/demo2'}>
+                                <Icon type={'user'}/>
+                                <span>demo2</span>
+                            </Link>
+
+                        </Item>
                         <Item key={'/desktop'}>
                             <Icon type={'desktop'}></Icon>
                             <span>zm</span>
@@ -109,12 +125,12 @@ class Layout extends Component{
                 </nav>
                 <section className={'center-wrapper'}>
 
-                <Prompt
+                {/*<Prompt
                     when={true}
                     message={location =>
                         `Are you sure you want to go to ${location.pathname}`
                     }
-                />
+                />*/}
 
                     <header className={'head-wrapper'}>
                         <Icon onClick={this.handleCollapse} type={collapsed ? 'menu-unfold':'menu-fold'} theme="outlined" style={{fontSize: 24, paddingLeft: 20}}/>
