@@ -94,12 +94,18 @@ class Layout extends Component{
 
                         </Item>
                         <Item key={'/demo2'}>
-
                             <Link to={'/demo2'}>
-                                <Icon type={'user'}/>
                                 <span>demo2</span>
                             </Link>
-
+                        </Item>
+                        <Item key={'/demo3'}>
+                            <Link to={'/demo3'}>demo3</Link>
+                        </Item>
+                        <Item key={'/demo4'}>
+                            <Link to={'/demo4'}>demo4</Link>
+                        </Item>
+                        <Item key={'/demo5'}>
+                            <Link to={'/demo5'}>demo5</Link>
                         </Item>
                         <Item key={'/desktop'}>
                             <Icon type={'desktop'}></Icon>
