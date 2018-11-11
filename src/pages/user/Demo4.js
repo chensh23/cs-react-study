@@ -80,9 +80,19 @@ class Demo4 extends Component {
             inputValue: "",
             data: []
         }*/
-        this.state = store.getState().todoList
+        // this.state = store.getState().todoList
+        const storeState = store.getState().get("todoList");
+        this.state = {
+            inputValue: storeState.get("inputValue"),
+            data: storeState.get("data")
+        }
         store.subscribe(() => {
-            this.setState(store.getState().todoList);
+            //this.setState(store.getState().get("todoList"));
+            const storeState1 = store.getState().get("todoList");
+            this.setState({
+                inputValue: storeState1.get("inputValue"),
+                data: storeState1.get("data")
+            })
         })
     }
 
@@ -108,7 +118,7 @@ class Demo4 extends Component {
                     <Input
                         className={"input"}
                         placeholder={"input value"}
-                        value={this.state.inputValue}
+                        value={inputValue}
                         onChange={this.handleChange}
                     />
                     <Button type={"primary"} onClick={this.handleClick}>submit</Button>
