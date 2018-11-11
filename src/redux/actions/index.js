@@ -1,23 +1,35 @@
-import {INCREAMENT,DECREAMENT,CLEAR,ADD_TODO,CHANGE_INPUT,DELETE_ITEM} from "../consts";
-
+import * as consts from "../consts";
+import axios from "axios"
+import {fromJS} from "immutable"
 export const plus = ()=> ({
-    type: INCREAMENT
+    type: consts.INCREAMENT
 })
 export const minus = ()=> ({
-    type: DECREAMENT
+    type: consts.DECREAMENT
 })
 
 export const addTodo = ()=> ({
-    type: ADD_TODO
+    type: consts.ADD_TODO
 })
 export const changeInput = (inputValue)=> ({
-    type: CHANGE_INPUT,
+    type: consts.CHANGE_INPUT,
     inputValue
 })
 export const deleteItem = (index)=> ({
-    type: DELETE_ITEM,
+    type: consts.DELETE_ITEM,
     index
 })
 export const clear = ()=> ({
-    type: CLEAR
+    type: consts.CLEAR
 })
+export const tableList = (data) => ({
+    type: consts.TABLE_LIST,
+    data
+})
+export const getList = () => (dispatch) => {
+    return axios.get("/api/test.json").then(
+        (res) => {
+            dispatch(tableList(fromJS(res.data)));
+        }
+    ).catch((err) => console.log(err))
+}

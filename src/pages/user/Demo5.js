@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
-import {Table} from "antd"
+import {Table} from "antd";
+import * as actionCreators from "../../redux/actions"
+import {connect} from "react-redux"
 import {Box} from "./style/Demo5"
 
-const dataSource = [
+const dataSource1 = [
     {vo:{key:"1",name: "莱昂纳多",age: 40}},
     {vo:{key:"2",name: "莱昂纳多1",age: 40}},
     {vo:{key:"3",name: "莱昂纳多2",age: 40}},
@@ -25,6 +27,63 @@ const dataSource = [
     {vo:{key:"20",name: "莱昂纳多",age: 40}}
 
 ];
+class Demo5 extends Component {
+    constructor(props) {
+        super(props);
+        this.state={
+            current: 1,
+            pageSize: 15
+        }
+    }
+    componentDidMount(){
+        //connect第二个参数为空时，dispatch会通过props传到组件中
+        //this.props.dispatch(actionCreators.getList())
+        this.props.getTableList()
+    }
+
+    render() {
+        //   const {data} = this.props.demo5  //immutable数据解构不出来
+        const dataSource = this.props.demo5.get("data").toJS()
+        return (
+            <Box >
+                <Table
+                    type={"checkbox"}
+                    scroll={{y: "68vh"}}
+                    rowKey={(record,index)=>{return index;}}
+                    bordered
+                    loading={false}
+                    dataSource={dataSource}
+                    columns={columns}
+                    pagination={{
+                        hideOnSinglePage: true, //只有一页时是否隐藏分页器
+                        defaultCurrent: 1,
+                        current: this.state.current, //动态的
+                        defaultPageSize: 15,
+                        pageSize: this.state.pageSize,  //动态的  配合 showSizeChanger pageSizeOptions onShowSizeChange
+                        showQuickJumper: true,
+                        total: dataSource.length,
+                        showTotal: (total)=> `共${total}条`,
+                        onChange: (page,pageSize)=>{
+                            this.setState((preState)=>{return{...preState,current:page,pageSize}})
+                        }
+
+                    }}
+                    onRow={(record) => {
+                        return {
+                            onClick: () => {
+
+                            },       // 点击行
+                            onMouseEnter: () => {},  // 鼠标移入行
+                        };
+                    }}
+
+
+                />
+            </Box>
+
+        );
+    }
+}
 const renderContent = (value, row, index) => {
     const obj = {
         children: value,
@@ -79,55 +138,19 @@ const columns = [
 
     }
 ]
-class Demo5 extends Component {
-    constructor(props) {
-        super(props);
-        this.state={
-            current: 1,
-            pageSize: 15
-        }
-    }
-
-    render() {
-        return (
-            <Box >
-                <Table
-                    type={"checkbox"}
-                    scroll={{y: "68vh"}}
-                    rowKey={(record,index)=>{return index;}}
-                    bordered
-                    loading={false}
-                    dataSource={dataSource}
-                    columns={columns}
-                    pagination={{
-                        hideOnSinglePage: true, //只有一页时是否隐藏分页器
-                        defaultCurrent: 1,
-                        current: this.state.current, //动态的
-                        defaultPageSize: 15,
-                        pageSize: this.state.pageSize,  //动态的  配合 showSizeChanger pageSizeOptions onShowSizeChange
-                        showQuickJumper: true,
-                        total: dataSource.length,
-                        showTotal: (total)=> `共${total}条`,
-                        onChange: (page,pageSize)=>{
-                            this.setState((preState)=>{return{...preState,current:page,pageSize}})
-                        }
-
-                     }}
-                    onRow={(record) => {
-                        return {
-                            onClick: () => {
-
-                            },       // 点击行
-                            onMouseEnter: () => {},  // 鼠标移入行
-                        };
-                    }}
-
-
-                    />
-            </Box>
-
-        );
+const mapStateToProps = (state) => {
+    return {
+        demo5: state.get("demo5")
     }
 }
+/*const mapDispatchToProps = (dispatch) => {
+    return {
+        getTableList: () => {
+            dispatch(actionCreators.getList())
+        }
+    }
+}*/
+//简化写法
+const mapDispatchToProps = {getTableList: actionCreators.getList}
 
-export default Demo5;
+export default connect(mapStateToProps,mapDispatchToProps)(Demo5);

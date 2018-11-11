@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Button, Input, List, Table} from "antd"
 import "../../style"
 import store from "../../redux/store"
-import {addTodo, changeInput, deleteItem} from "../../redux/actions"
+import * as actionCreators from "../../redux/actions"
 import {Box} from "./style/Demo5"
 const dataSource = [
     {vo:{key:"1",name: "莱昂纳多",age: 40}},
@@ -88,6 +88,7 @@ class Demo4 extends Component {
         }
         store.subscribe(() => {
             //this.setState(store.getState().get("todoList"));
+            //immutable使用get取值
             const storeState1 = store.getState().get("todoList");
             this.setState({
                 inputValue: storeState1.get("inputValue"),
@@ -98,14 +99,14 @@ class Demo4 extends Component {
 
     handleClick = () => {
         //this.setState({data: [...this.state.data,this.state.inputValue]});
-        store.dispatch(addTodo())
+        store.dispatch(actionCreators.addTodo())
     }
     handleChange = (e) => {
         // this.setState({inputValue: e.target.value});
-        store.dispatch(changeInput(e.target.value))
+        store.dispatch(actionCreators.changeInput(e.target.value))
     }
     handleDelete = (index) => {
-        store.dispatch(deleteItem(index))
+        store.dispatch(actionCreators.deleteItem(index))
     }
 
     render() {
