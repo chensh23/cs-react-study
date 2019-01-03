@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Card, Input,InputNumber,Button, Icon, Col,Form, DatePicker} from "antd"
 const FormItem = Form.Item
 
-class DemoTest extends Component{
+class AA extends Component{
     constructor(props){
         super(props);
     }
@@ -86,11 +86,11 @@ class DemoTest extends Component{
 
 }
 const onFieldsChange = (props,changeFields)=>{
-    //console.log("onFieldsChange",changeFields)
+    console.log("onFieldsChange",changeFields)
         props.onChange(changeFields)
 }
 const mapPropsToFields = (props)=>{
-   // console.log("mapPropsToFields")
+    console.log("mapPropsToFields")
     const fields = props.fields;
     let initValue = {};
     for(let key in fields){
@@ -103,10 +103,10 @@ const mapPropsToFields = (props)=>{
     return initValue
 }
 const onValuesChange = (props,values)=>{
-   // console.log("onValuesChange",values)
+    console.log("onValuesChange",values)
 
 }
-const DemoForm = Form.create({onFieldsChange,mapPropsToFields,onValuesChange})(DemoTest);
+const AAForm = Form.create({onFieldsChange,mapPropsToFields,onValuesChange})(AA);
 
 
 class Demo extends Component{
@@ -124,13 +124,14 @@ class Demo extends Component{
         }
     }
     handleFormChange = (changeFields)=>{
+        console.log('handleFormChange changeFields',changeFields)
         this.setState(({fields})=>({fields: {...fields,...changeFields}}));
     }
     render(){
        const fields = this.state.fields;
        return (
            <div>
-                <DemoForm fields={fields} onChange={this.handleFormChange}></DemoForm>
+                <AAForm fields={fields} onChange={this.handleFormChange}></AAForm>
            </div>
     )
     }

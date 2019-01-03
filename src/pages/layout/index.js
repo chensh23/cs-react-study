@@ -81,7 +81,7 @@ class Layout extends Component{
 
                             <Link to={'/demo'}>
                                 <Icon type={'email'}/>
-                                <span>demo</span>
+                                <span>使用表单mapPropsToFields</span>
                             </Link>
 
                         </Item>
@@ -89,23 +89,23 @@ class Layout extends Component{
 
                             <Link to={'/demo1'}>
                                 <Icon type={'email'}/>
-                                <span>demo1</span>
+                                <span>动态添加组件</span>
                             </Link>
 
                         </Item>
                         <Item key={'/demo2'}>
                             <Link to={'/demo2'}>
-                                <span>demo2</span>
+                                <span>自定义表单组件</span>
                             </Link>
                         </Item>
                         <Item key={'/demo3'}>
-                            <Link to={'/demo3'}>demo3</Link>
+                            <Link to={'/demo3'}>动画CSSTransition</Link>
                         </Item>
                         <Item key={'/demo4'}>
-                            <Link to={'/demo4'}>demo4</Link>
+                            <Link to={'/demo4'}>redux、immutable</Link>
                         </Item>
                         <Item key={'/demo5'}>
-                            <Link to={'/demo5'}>demo5</Link>
+                            <Link to={'/demo5'}>react-redux、immutable</Link>
                         </Item>
                         <Item key={'/desktop'}>
                             <Icon type={'desktop'}></Icon>
