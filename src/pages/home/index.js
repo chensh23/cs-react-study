@@ -71,7 +71,7 @@ class Home extends Component{
 }
 const mapStateToProps= (state,ownProps)=>{
     return {
-        calculator: state.calculator
+        calculator: state.get("calculator")
     }
 }
 /*const mapDispatchToProps = (dispatch,ownProps)=>{

@@ -42,8 +42,10 @@ class Demo5 extends Component {
     }
 
     render() {
+        //immutable会把object转成Map类型、Array转成List类型
         //   const {data} = this.props.demo5  //immutable数据解构不出来
-        const dataSource = this.props.demo5.get("data").toJS()
+       // const dataSource = this.props.demo5.get("data").toJS()//.toJS()是把List类型转成Array
+       const dataSource = this.props.data.toJS()//在mapStateToProps中直接把data获取出来
         return (
             <Box >
                 <Table
@@ -140,7 +142,8 @@ const columns = [
 ]
 const mapStateToProps = (state) => {
     return {
-        demo5: state.get("demo5")
+        // demo5: state.get("demo5")
+        data: state.get("demo5").get("data")
     }
 }
 /*const mapDispatchToProps = (dispatch) => {
