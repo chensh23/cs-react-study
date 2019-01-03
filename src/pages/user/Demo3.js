@@ -1,34 +1,15 @@
 import React, {Component, Fragment} from 'react';
-import axios from "axios"
 import {Button} from "antd"
 import {CSSTransition,TransitionGroup} from "react-transition-group"
 import "../../style"
-// 添加请求拦截器
-axios.interceptors.request.use(function (config) {
-    // 在发送请求之前做些什么
-    console.log("config",config);
-    return config;
-}, function (error) {
-    // 对请求错误做些什么
-    return Promise.reject(error);
-});
-
-// 添加响应拦截器
-axios.interceptors.response.use(function (response) {
-    // 对响应数据做点什么
-    console.log("response",response);
-    return response.data;
-}, function (error) {
-    // 对响应错误做点什么
-    return Promise.reject(error);
-});
+import api from "../../mock/api"
 
 class Demo3 extends Component {
     state = {data: [],show: true}
     componentDidMount(){
-        axios.get("/api/todolist").then((res)=>{
+        api.mockData("/api/todolist").then((res)=>{
             console.log("res",res);
-            this.setState(()=>({data: [...res]}))
+            this.setState(()=>({data: res}))
         });
     }
     onToggle = ()=>{

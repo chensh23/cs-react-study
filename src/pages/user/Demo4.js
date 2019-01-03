@@ -4,7 +4,8 @@ import "../../style"
 import store from "../../redux/store"
 import * as actionCreators from "../../redux/actions"
 import {Box} from "./style/Demo5"
-const dataSource = [
+import api from "../../mock/api"
+/*const dataSource = [
     {vo:{key:"1",name: "莱昂纳多",age: 40}},
     {vo:{key:"2",name: "莱昂纳多1",age: 40}},
     {vo:{key:"3",name: "莱昂纳多2",age: 40}},
@@ -25,8 +26,7 @@ const dataSource = [
     {vo:{key:"18",name: "莱昂纳多",age: 40}},
     {vo:{key:"19",name: "莱昂纳多",age: 40}},
     {vo:{key:"20",name: "莱昂纳多",age: 40}}
-
-];
+];*/
 const renderContent = (value, row, index) => {
     const obj = {
         children: value,
@@ -44,14 +44,14 @@ const columns = [
         dataIndex: "vo.name",
         width: 100,
         key: "name",//如果dataIndex是唯一的，就可以忽略key的设置
-        render: (text,row,index)=>{
+        render: (text, row, index) => {
             const obj = {
                 children: <a>{text}</a>,
                 props: {}
             };
-            if(index==14){
-              // 有合并的行中要合并的列设置为3
-                obj.props.colSpan=3
+            if (index == 14) {
+                // 有合并的行中要合并的列设置为3
+                obj.props.colSpan = 6
             }
 
             return obj
@@ -66,6 +66,27 @@ const columns = [
 
     },
     {
+        title: "性别",
+        dataIndex: "vo.sex",
+        width: 100,
+        key: "sex",
+        render: renderContent
+    },
+    {
+        title: "学校",
+        dataIndex: "vo.school",
+        width: 100,
+        key: "school",
+        render: renderContent
+    },
+    {
+        title: "邮箱",
+        dataIndex: "vo.email",
+        width: 100,
+        key: "email",
+        render: renderContent
+    },
+    {
         title: "合计",
         dataIndex: "summary",
         width: 100,
@@ -73,6 +94,7 @@ const columns = [
 
     }
 ]
+
 class Demo4 extends Component {
     constructor(props) {
         super(props);
@@ -83,6 +105,7 @@ class Demo4 extends Component {
         // this.state = store.getState().todoList
         const storeState = store.getState().get("todoList");
         this.state = {
+            dataSource: [],
             inputValue: storeState.get("inputValue"),
             data: storeState.get("data")
         }
@@ -109,8 +132,16 @@ class Demo4 extends Component {
         store.dispatch(actionCreators.deleteItem(index))
     }
 
+    componentDidMount() {
+        api.mockData("/api/getData").then(res => {
+            console.log(res);
+            this.setState({dataSource: res});
+        })
+    }
+
     render() {
-        const {inputValue, data} = this.state;
+        const {inputValue, dataSource, data} = this.state;
+        console.log(dataSource);
         return (
             <Box
                 className={"box-4"}
@@ -129,8 +160,8 @@ class Demo4 extends Component {
                     header={<div style={{fontWeight: "bold"}}>TodoList</div>}
                     bordered={true}
                     dataSource={data}
-                    renderItem={(item, index) =>{
-                       return <List.Item
+                    renderItem={(item, index) => {
+                        return <List.Item
                             onClick={() => {
                                 this.handleDelete(index)
                             }}
@@ -138,10 +169,12 @@ class Demo4 extends Component {
                             {item}
                         </List.Item>
                     }
-                   }
+                    }
                 />
                 <Table
-                    rowKey={(record,index)=>{return index;}}
+                    rowKey={(record, index) => {
+                        return index;
+                    }}
                     bordered
                     loading={false}
                     dataSource={dataSource}
@@ -151,12 +184,14 @@ class Demo4 extends Component {
                         defaultCurrent: 1,
                         current: 1, //动态的
                         defaultPageSize: 15,
-                        pageSize: 2,  //动态的  配合 showSizeChanger pageSizeOptions onShowSizeChange
+                        pageSize: 6,  //动态的  配合 showSizeChanger pageSizeOptions onShowSizeChange
                         showQuickJumper: true,
-                        total: dataSource.length,
-                        showTotal: (total)=> `共${total}条`,
-                        onChange: (page,pageSize)=>{console.log("pagination onChange set current",page,pageSize)}
-                     }}
+                        total: dataSource ? dataSource.length : 0,
+                        showTotal: (total) => `共${total}条`,
+                        onChange: (page, pageSize) => {
+                            console.log("pagination onChange set current", page, pageSize)
+                        }
+                    }}
                     scroll={{y: 240}}/>
 
             </Box>

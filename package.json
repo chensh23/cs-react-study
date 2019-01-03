@@ -26,5 +26,7 @@
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-app-rewired eject"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "mockjs": "^1.0.1-beta3"
+  }
 }
