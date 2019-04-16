@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Card, Dropdown, Menu,Icon,Button, InputNumber, Row} from "antd"
 import {connect} from 'react-redux'
 import * as operator from "../../redux/actions"
+import _ from "lodash"
 
 class Home extends Component{
     state = {visible: false,
@@ -34,7 +35,6 @@ class Home extends Component{
         const {calculator,plus,minus} = this.props;
         return(
             <Card title={'Home'}>
-                Home
                 <Row style={{marginTop: 10}}>
                     <Dropdown
                         overlay={menu}
