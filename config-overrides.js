@@ -1,20 +1,24 @@
-
-const {override, fixBabelImports,addBabelPresets} = require('customize-cra');
-/*const rewiredMap = () => config => {
-    config.devtool = config.mode === 'development' ? 'cheap-module-source-map' : false;
-    return config;
-};*/
+const {override, fixBabelImports, addLessLoader,addDecoratorsLegacy} = require('customize-cra');
 const polyfillEntry = () => config => {
     config.entry= ["babel-polyfill",'./src/index.js']
     return config;
 };
-
 module.exports = override(
     fixBabelImports('import', {
         libraryName: 'antd',
         libraryDirectory: 'es',
-        style: 'css',
-
+        style: true,
     }),
-    polyfillEntry()
+    addLessLoader({
+        javascriptEnabled: true,
+        modifyVars: {
+            "@menu-dark-color": "white",
+            "@menu-dark-bg": "#364760",
+            "@menu-dark-arrow-color": "#fff",
+            "@menu-dark-submenu-bg": "rgba(46, 61, 83, 1)",
+            "@menu-dark-highlight-color": "#fff",
+        }
+    }),
+    polyfillEntry(),
+    addDecoratorsLegacy()
 );
